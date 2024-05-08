@@ -1,6 +1,7 @@
 # toolsheff
 
-Collection of general use functions.
+Collection of general use functions. The to-do list is noted under
+[github.com/scc-pi/toolsheff/issues](https://github.com/scc-pi/toolsheff/issues).
 
 ## Use
 
@@ -25,8 +26,13 @@ source("C:/repo/toolsheff/R/_scc-tools.R")
 ## Project specific
 
 You may have functions that are useful across different scripts but only
-within the context of a single project (and project specific repo). For
-example, within a `housing` local repo:
+within the context of a single project. In this scenario, you could add
+similar script with functions (for example `_scc-tools-housing.R`), but
+within your project specific repo (for example
+[github.com/scc-pi/housing](https://github.com/scc-pi/housing)) rather
+than this repo
+([github.com/scc-pi/toolsheff](https://github.com/scc-pi/toolsheff)). In
+which case you’d need to source a second file, for example:
 
 ``` r
 # source("https://raw.githubusercontent.com/scc-pi/toolsheff/main/R/_scc-tools.R")
@@ -37,9 +43,9 @@ source(here::here("R", "_scc-tools-housing.R"))
 ## Database connections
 
 Even with hidden authorisation credentials, we don’t want to store
-database addresses and port numbers. So, this is something that will
-have to wait until we have secure private repos available via Azure
-DevOps.
+database addresses and port numbers in a public repo. So, this is
+something that will have to wait until we have secure private repos
+available via Azure DevOps.
 
 ## Plans
 
