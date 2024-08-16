@@ -26,7 +26,7 @@ source("C:/repo/toolsheff/R/_scc-tools.R")
 
 ## Project specific  
 
-You may have functions that are useful across different scripts but only within the context of a single project. In this scenario, you could add similar script with functions (for example `_scc-tools-housing.R`), but within your project specific repo (for example [github.com/scc-pi/housing](https://github.com/scc-pi/housing)) rather than this repo ([github.com/scc-pi/toolsheff](https://github.com/scc-pi/toolsheff)). In which case you'd need to source a second file, for example: 
+You may have functions that are useful across different scripts but only within the context of a single project. In this scenario, you could add a similar script with functions (for example `_scc-tools-housing.R`), but within your project specific repo (for example [github.com/scc-pi/housing](https://github.com/scc-pi/housing)) rather than this repo ([github.com/scc-pi/toolsheff](https://github.com/scc-pi/toolsheff)). In which case you'd need to source a second file, for example: 
 
 ```{r}
 #| eval: FALSE

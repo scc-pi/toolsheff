@@ -176,12 +176,12 @@ sankey_plot <- function(links){
   )
   
   # Display the node value on a 2nd line of the label
-  sankey |> 
+  sankey |>
     htmlwidgets::onRender(
     'function(el, x) {
       d3.select(el)
         .selectAll(".node text")
-        .html(d => 
+        .html(d =>
           d.name + "<tspan dy=\'1.2em\' x=\'60\'>" +
           "(" + d.value.toLocaleString() + ")"
         );
@@ -243,8 +243,12 @@ financial_year <- function(date) {
   if_else(lubridate::quarter(date) < 2, year - 1, year)
 }
 
-financial_year_name <- function(financial_year) {
-  stringr::str_c(financial_year, "/", (financial_year + 1 - 2000))
+financial_year_name <- function(financial_year, reverse = FALSE) {
+  if (!reverse) {
+    stringr::str_c(financial_year, "/", (financial_year + 1 - 2000))
+  } else {
+    stringr::str_extract(financial_year, "^[^/]+")
+  }
 }
 
 # Dev ----
