@@ -34,6 +34,7 @@ gt_theme_scc <- function(gt_object, ...) {
   stopifnot("'gt_object' must be a 'gt_tbl', have you accidentally passed raw data?" = "gt_tbl" %in% class(gt_object))
   
   gt_object  |> 
+    gt::opt_all_caps(locations = "row_group") |>
     gt::opt_table_font(
       font = list(
         gt::google_font("Cairo"),
@@ -68,14 +69,15 @@ gt_theme_scc <- function(gt_object, ...) {
       table.border.top.width = gt::px(3),
       table.border.top.style = "none", # transparent
       table.border.bottom.style = "none",
-      column_labels.font.weight = "normal",
+      column_labels.font.weight = "bold",
       column_labels.border.top.style = "none",
       column_labels.border.bottom.width = gt::px(2),
-      column_labels.border.bottom.color = "black",
-      row_group.border.top.style = "none",
-      row_group.border.top.color = "black",
-      row_group.border.bottom.width = gt::px(1),
-      row_group.border.bottom.color = "white",
+      column_labels.border.bottom.color = "gray",
+      row_group.border.top.color = "gray",
+      row_group.border.bottom.color = "gray",
+      row_group.background.color = "gray95",
+      row_group.font.weight = "normal",
+      row_group.font.size = 12,
       stub.border.color = "white",
       stub.border.width = gt::px(0),
       source_notes.font.size = 12,
@@ -88,7 +90,10 @@ gt_theme_scc <- function(gt_object, ...) {
       "tbody tr:last-child {border-bottom: 2px solid #ffffff00;}",
       add = TRUE
     ) |> 
-    gt::opt_all_caps(all_caps = FALSE)
+    gt::opt_row_striping(row_striping = FALSE) |> 
+    # Workaround for bootstrap css baked into Quarto but breaks table citations
+    # https://github.com/quarto-dev/quarto-cli/issues/6945
+    gt::tab_options(quarto.disable_processing = TRUE) 
 }
 
 display_tbl <- function(df, interactive = FALSE){
